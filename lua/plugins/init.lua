@@ -10,14 +10,22 @@ return {
     "nvim-tree/nvim-tree.lua",
     opts = function()
       local ret = require "nvchad.configs.nvimtree"
-      ret.actions.open_file.window_picker = {
-        picker = function ()
-          return require('window-picker').pick_window()
-        end
+      ret.actions = {
+        open_file = {
+          window_picker = {
+            picker = function ()
+              return require('window-picker').pick_window()
+            end
+          }
+        }
       }
 
       return ret
     end,
+  },
+  {
+    'HiPhish/rainbow-delimiters.nvim',
+    lazy = false,
   },
   {
     's1n7ax/nvim-window-picker',
@@ -78,7 +86,15 @@ return {
   		ensure_installed = {
   			"vim", "lua", "vimdoc",
         "html", "css", "javascript", "typescript",
+        "tsx",
+        "markdown",
+        "markdown_inline",
   		},
   	},
+  },
+
+  {
+    "wavded/vim-stylus",
+    lazy = false,
   },
 }
