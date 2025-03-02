@@ -19,6 +19,11 @@ return {
           }
         }
       }
+      ret.view.relativenumber = true
+      ret.view.cursorline = true
+      ret.view.width = {
+        max = 100
+      }
 
       return ret
     end,
