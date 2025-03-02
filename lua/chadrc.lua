@@ -1,9 +1,11 @@
 ---@type ChadrcConfig
 local M = {}
 
-M.ui = {
-	theme = "one_light",
+M.base46 = {
+  theme = "one_light"
+}
 
+M.ui = {
 	-- hl_override = {
 	-- 	Comment = { italic = true },
 	-- 	["@comment"] = { italic = true },
