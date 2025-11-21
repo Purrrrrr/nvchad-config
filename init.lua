@@ -35,3 +35,12 @@ require "autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+require('telescope').setup {
+  pickers = {
+    find_files = {
+      follow = true
+    }
+  }
+}
+
