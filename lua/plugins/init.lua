@@ -1,5 +1,13 @@
 return {
   {
+    "AndrewRadev/splitjoin.vim",
+    lazy = false,
+    -- keys = {
+    --   { "gS", "<cmd>SplitjoinSplit<cr>", desc = "Split" },
+    --   { "gJ", "<cmd>SplitjoinJoin<cr>", desc = "Join" },
+    -- }
+  },
+  {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
@@ -16,15 +24,21 @@ return {
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  {
+    "github/copilot.vim",
+    lazy = false,
+  },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    dependencies = {
+      { "nvim-lua/plenary.nvim", branch = "master" },
+    },
+    cmd = { "CopilotChat" },
+    build = "make tiktoken",
+    opts = {
+      -- See Configuration section for options
+    },
+  },
   {
     "nvim-tree/nvim-tree.lua",
     opts = function()
@@ -96,18 +110,34 @@ return {
     },
   },
 
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "vim", "lua", "vimdoc",
-        "html", "css", "javascript", "typescript",
-        "tsx",
-        "markdown",
-        "markdown_inline",
-      },
-    },
-  },
+  -- {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   opts = {
+  --     ensure_installed = {
+  --       "vim", "lua", "vimdoc",
+  --       "html", "css", "javascript", "typescript",
+  --       "tsx",
+  --       "markdown",
+  --       "markdown_inline",
+  --     },
+  --     conceal = {
+  --       enable = false,
+  --     },
+  --   },
+  -- },
+  -- {
+  -- 	"nvim-treesitter/nvim-treesitter",
+  --   lazy = false,
+  -- 	opts = {
+  -- 		ensure_installed = {
+  -- 			"vim", "lua", "vimdoc",
+  --      "html", "css", "tsx", "javascript", "typescript",
+  -- 		},
+  --     conceal = {
+  --       enable = false,
+  --     },
+  -- 	},
+  -- },
 
   {
     "wavded/vim-stylus",

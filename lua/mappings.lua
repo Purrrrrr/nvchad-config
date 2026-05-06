@@ -4,10 +4,20 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
+vim.g.copilot_no_tab_map = true
+
+vim.keymap.set('i', '<C-L>', '<Plug>(copilot-accept-word)')
+vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false
+})
+
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map("n", "<leader>-", "<cmd>EslintFixAll<Cr>", { desc = "Custom: Eslint fix all" })
+map("n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<Cr>", { desc = "Custom: Code actions" })
 map("n", "<leader>q", "<cmd>q<Cr>", { desc = "Custom: Close window" })
 map("n", "<leader>w", "<cmd>w<Cr>", { desc = "Custom: Save file" })
 map("n", "<leader>y", "+y", { desc = "Custom: Copy from system keyboard" })
